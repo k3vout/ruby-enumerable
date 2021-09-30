@@ -1,6 +1,4 @@
-# Project Name
-
-Own Enumerable
+# Own Enumerable
 
 Script in Ruby that creates a Class and import a module that implements a subset of the functionality of Enumerable.
 
