@@ -1,26 +1,26 @@
 module MyEnumerable
-  def all?(&block)
+  def all?
     result = nil
-    each.with_index do |element, idx|
-      result = block.call(element) if idx.zero?
-      result &&= block.call(element) if idx != 0
+    @list.each.with_index do |element, idx|
+      result = yield(element) if idx.zero?
+      result &&= yield(element) if idx != 0
     end
     result
   end
 
-  def any?(&block)
+  def any?
     result = nil
-    each.with_index do |element, idx|
-      result = block.call(element) if idx.zero?
-      result ||= block.call(element) if idx != 0
+    @list.each.with_index do |element, idx|
+      result = yield(element) if idx.zero?
+      result ||= yield(element) if idx != 0
     end
     result
   end
 
-  def filter(&block)
+  def filter
     result = []
-    each do |element|
-      result << element if block.call(element) == true
+    @list.each do |element|
+      result << element if yield(element) == true
     end
     result
   end

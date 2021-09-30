@@ -7,8 +7,8 @@ class MyList
 
   include MyEnumerable
 
-  def each(&block)
-    @list.each(&block)
+  def each
+    yield(@list)
   end
 end
 
